@@ -58,7 +58,7 @@ def extract_repo_tutors() -> typing.Generator[str, None, None]:
     foolproof, but it's suitable.
     """
     for inc_fname in chain(glob.glob("./data/scripts/*.inc"), glob.glob("./data/maps/*/scripts.inc")):
-        with open(inc_fname, "r") as inc_fp:
+        with open(inc_fname, "r", encoding="utf-8") as inc_fp:
             incfile = inc_fp.read()
             if not INCFILE_HAS_TUTOR_PAT.search(incfile):
                 continue
